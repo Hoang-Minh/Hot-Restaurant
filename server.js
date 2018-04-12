@@ -36,6 +36,11 @@ app.post('/api/tables', function (req, res) {
   // res.send(true)
 })
 
+app.post('/api/clear', function(req, res){
+  userArr = []
+  res.json(userArr);
+})
+
 app.get('/api/waitlist', function (req, res) {
   res.json(userArr)
 })
