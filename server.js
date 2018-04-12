@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
   res.redirect('index.html')
 })
 
-app.get('/reservations', function (req, res) {
+app.get('/reserve', function (req, res) {
     res.redirect('reservations.html')
 })
 
