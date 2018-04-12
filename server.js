@@ -28,11 +28,10 @@ app.get('/tables', function (req, res) {
     res.redirect('./views/index.html')
 })
 
-app.post('/api/tables', function (req, res) {
-  
+app.post('/api/tables', function (req, res) {  
   if(userArr.length < 2){
     userArr.push(req.body);
-    res.json(userArr);
+    //res.json(userArr);
     res.send(true);
   }else{
     waitList.push(req.body);
@@ -43,8 +42,8 @@ app.post('/api/tables', function (req, res) {
 app.post('/api/clear', function(req, res){
   userArr = []
   waitList = []
-  res.json(userArr);
-  res.json(waitList);
+  // res.json(userArr);
+  // res.json(waitList);
 })
 
 app.get('/api/waitlist', function (req, res) {  
