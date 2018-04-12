@@ -13,6 +13,7 @@ app.use(bodyparser.json())
 
 // your code here...
 var userArr = []
+var waitList = []
 
 // app.get('/getContact', function (req, res) {
 //   res.json(userArr)
@@ -31,8 +32,16 @@ app.get('/tables', function (req, res) {
 })
 
 app.post('/api/tables', function (req, res) {
-  userArr.push(req.body)
-  res.json(userArr)
+  
+  if(userArr.length < 6){
+    userArr.push(req.body);
+    res.json(userArr);
+    res.send(true);
+  }else{
+    waitList.push(req.body);
+    res.send(false);
+  }
+  
   // res.send(true)
 })
 
@@ -41,10 +50,13 @@ app.post('/api/clear', function(req, res){
   res.json(userArr);
 })
 
-app.get('/api/waitlist', function (req, res) {
-  res.json(userArr)
+app.get('/api/waitlist', function (req, res) {  
+  res.json(waitList);
 })
 
+app.get('/api/tables', function(req, res){
+  res.json(userArr);
+})
 
 
 
